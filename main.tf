@@ -46,7 +46,7 @@ resource "google_compute_instance" "kubernetes_master" {
   }
 }
 
-// Worker node for k8s cluster
+/* // Worker node for k8s cluster
 resource "google_compute_instance" "kubernetes_worker" {
   name         = var.kubernetes_worker_name
   machine_type = var.machine_type
@@ -80,3 +80,5 @@ resource "google_compute_instance" "kubernetes_worker" {
     }
   }
 }
+
+*/

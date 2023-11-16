@@ -28,7 +28,6 @@ resource "google_compute_instance" "kubernetes_master" {
   metadata = {
     "ssh-keys" = <<EOF
       ${var.k8_master_ssh_user}:${file(var.k8_master_ssh_pub_key_file)}
-      pavlo:ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHE82IFNxB6rNtgr8vgvcwHg6buELdcmx3zAwJZEdEly pavlo@pavlos-MacBook-Pro.local
     EOF
   }
     
@@ -47,7 +46,7 @@ resource "google_compute_instance" "kubernetes_master" {
   }
 }
 
-// Worker node for k8s cluster
+/* // Worker node for k8s cluster
 resource "google_compute_instance" "kubernetes_worker" {
   name         = var.kubernetes_worker_name
   machine_type = var.machine_type
@@ -82,3 +81,4 @@ resource "google_compute_instance" "kubernetes_worker" {
   }
 }
 
+*/

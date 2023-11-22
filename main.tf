@@ -15,12 +15,14 @@ provider "google" {
 resource "google_compute_instance" "kubernetes_master" {
   name         = var.kubernetes_master_name
   machine_type = var.machine_type
+  allow_stopping_for_update = true // this was for scale up from ec2-small to ec2-medium, but you need to restart server manualy from console or cli
 
   labels = var.labels
 
   boot_disk {
     initialize_params {
       image = var.image
+      size = "25"
     }
   
   }
@@ -46,7 +48,7 @@ resource "google_compute_instance" "kubernetes_master" {
     }
   }
 }
-
+/*
 // Worker node for k8s cluster
 resource "google_compute_instance" "kubernetes_worker" {
   name         = var.kubernetes_worker_name
@@ -81,4 +83,4 @@ resource "google_compute_instance" "kubernetes_worker" {
     }
   }
 }
-
+*/
